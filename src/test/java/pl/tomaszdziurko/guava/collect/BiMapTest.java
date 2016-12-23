@@ -15,6 +15,8 @@ public class BiMapTest {
     @Test
     public void shouldInverseBiMap() throws Exception {
 
+        //其实这个就是一个简单的双向map罢了。
+
         BiMap<Integer, String> bimap = HashBiMap.create();
 
         // when
@@ -32,6 +34,8 @@ public class BiMapTest {
             expectedExceptionsMessageRegExp = "value already present: one")
     public void shouldNotAllowToPutExistingValue() throws Exception {
 
+        //这个主要是测试双向map的唯一性。
+
         BiMap<Integer, String> bimap = HashBiMap.create();
 
         // when
@@ -45,6 +49,8 @@ public class BiMapTest {
 
     @Test
     public void shouldAllowToPutExistingValueWithForcePut() throws Exception {
+
+        //这里可以用forcePut来解决重复的问题，很简单。
 
         BiMap<Integer, String> bimap = HashBiMap.create();
 

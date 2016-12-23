@@ -22,6 +22,8 @@ public class PreconditionsLesson {
     }
 
     public void displayFootballTeamMembers(List<String> teamMembers) {
+
+        //后面都是提示的默认值
         Preconditions.checkNotNull(teamMembers, "Team can not be null");
         Preconditions.checkArgument(teamMembers.size() == 11, "Full team should consist of 11 players");
     }

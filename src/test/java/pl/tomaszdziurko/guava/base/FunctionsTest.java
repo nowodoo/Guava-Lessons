@@ -43,6 +43,8 @@ public class FunctionsTest {
 
     @Test
     public void shouldComposeTwoFunctions() throws Exception {
+        //表示经过两个函数的变换，一个是结构的变换，另一个是内容的变换。
+
         Function<Country, String> upperCaseFunction = new Function<Country, String>() {
             public String apply(@Nullable Country country) {
                 if (country == null) {
@@ -71,6 +73,7 @@ public class FunctionsTest {
 
     @Test
     public void shouldUseForMapFunction() throws Exception {
+        //就是根据一堆键，获取一堆值
 
         // given
         Map<String, String> map = Maps.newHashMap();
@@ -94,6 +97,8 @@ public class FunctionsTest {
 
     @Test(expectedExceptions = IllegalArgumentException.class, expectedExceptionsMessageRegExp = "Key 'Belgium' not present in map")
     public void shouldUseForMapFunctionWithNonExistingKey() throws Exception {
+
+        //就是为了抛出异常，要是在一个没有相关key的集合里面获取想要的数值是不可以的。
 
         // given
         Map<String, String> map = Maps.newHashMap();
@@ -119,6 +124,8 @@ public class FunctionsTest {
 
     @Test
     public void shouldUseForMapFunctionWithDefaultValue() throws Exception {
+
+        //表示对没有的值可以做一个默认值，就是这个文key没有值了就设置一个默认值。
 
         // given
         Map<String, String> map = Maps.newHashMap();

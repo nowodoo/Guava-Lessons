@@ -28,16 +28,24 @@ public class StringsTest {
     @Test
     public void shouldPadEnd() throws Exception {
 
+        //这个是用来不全的，一共多少个字符，然后是用多少个补全整个字符。
+
         assertThat(Strings.padEnd("Nothing special", 20, '*')).isEqualTo("Nothing special*****");
     }
 
     @Test
     public void shouldPadStart() throws Exception {
+
+        //在句首补全到一定的长度。
+
         assertThat(Strings.padStart("Nothing special", 20, ' ')).isEqualTo("     Nothing special");
     }
 
     @Test
     public void shouldRepeatGivenString() throws Exception {
+
+        //将字符进行重复性展示，就是重复展示一个字符罢了。
+
         assertThat(Strings.repeat("Hello ", 3)).isEqualTo("Hello Hello Hello ");
     }
 }

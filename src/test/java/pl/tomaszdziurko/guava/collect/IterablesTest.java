@@ -21,6 +21,8 @@ public class IterablesTest {
     @Test
     public void shouldCheckLengthOfAllElements() throws Exception {
 
+        //遍历集合中的每一个元素，看一下是不是符合某一个或者是某一些条件。其实这些用在局部逻辑处理上面是很方便的。可以拿来直接用的。
+
         // given
         Predicate<String> lengthPredicate = new Predicate<String> () {
             @Override
@@ -39,6 +41,8 @@ public class IterablesTest {
 
     @Test
     public void shouldCheckIfAtLeastOneElementIsEmptyOrNull() throws Exception {
+
+        //这里只是用来判断是不是符合一个元素。
 
         // given
         Predicate<String> emptyOrNullPredicate = new Predicate<String> () {

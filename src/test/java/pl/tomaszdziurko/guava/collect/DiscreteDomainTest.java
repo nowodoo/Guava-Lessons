@@ -15,6 +15,8 @@ public class DiscreteDomainTest {
     @Test
     public void shouldReturnNextInt() throws Exception {
 
+        //只是用数字表示了在一个数字范围之内将数字取出的做法。
+
         // given
         DiscreteDomain<Integer> integers = DiscreteDomains.integers();
 

@@ -30,6 +30,9 @@ public class ThrowablesTest {
             }
         }
         catch(Exception e) {
+
+            //获取之前所有的方法抛出的异常
+
             List<Throwable> exceptionsChain = Throwables.getCausalChain(e);
             assertThat(exceptionsChain).onProperty("message")
                     .containsExactly("Last exception", "Middle tier exception", "Innermost exception");
@@ -53,6 +56,9 @@ public class ThrowablesTest {
             }
         }
         catch(Exception e) {
+
+            //获取最根本的异常信息
+
             assertThat(Throwables.getRootCause(e).getMessage()).isEqualTo("Innermost exception");
         }
     }
@@ -74,6 +80,9 @@ public class ThrowablesTest {
             }
         }
         catch(Exception e) {
+
+            //这个是很实用的，直接将异常的信息自己取出来，这个很给力的。
+
             assertThat(Throwables.getStackTraceAsString(e))
                     .contains("Caused by: java.lang.RuntimeException: Innermost exception");
         }

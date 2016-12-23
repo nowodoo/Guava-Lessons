@@ -45,6 +45,8 @@ public class SplitterTest {
 
     @Test
     public void shouldSplitOnRegExp() throws Exception {
+        //用正则表达式去分割一个字符串。
+
         // when
         Iterable<String> iterable = Splitter.onPattern("\\d+").split("Java3Scala4Haskell0Brainfuck5Kotlin");
         List<String> splittedList = convertToList(iterable.iterator());
@@ -59,6 +61,8 @@ public class SplitterTest {
     @Test
     public void shouldSplitUsingCharMatcher() throws Exception {
 
+        //这个是用一个范围去分割一个字符串。 3 4 5这样的也算是一个范围
+
         // when
         Iterable<String> iterable = Splitter
                 .on(CharMatcher.inRange('3', '5')).split("Java3Scala4Haskell0Brainfuck5Kotlin");
@@ -72,6 +76,9 @@ public class SplitterTest {
 
     @Test
     public void shouldSplitAndOmitEmptyElementsAndWhitespaces() throws Exception {
+
+        //忽略空的字符串进行分割
+
         // when
         Iterable<String> iterable = Splitter.on(";").omitEmptyStrings()
                 .trimResults().split("Java;;  ;Scala;;;Haskell;Brainfuck;Kotlin");
@@ -86,7 +93,9 @@ public class SplitterTest {
     @Test
     public void shouldSplitForEqualLength() throws Exception {
 
-        // when
+        //这个是按照长度进进行分割。每隔着一定的长度将字符串分开。
+
+     // when
         Iterable<String> iterable = Splitter.fixedLength(5).split("HorseHouseGroupDemosScrum");
         List<String> splittedList = convertToList(iterable.iterator());
 

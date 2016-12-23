@@ -22,6 +22,8 @@ public class Collections2Test {
     @Test
     public void shouldTransformCollection() throws Exception {
 
+        //这里是将一个集合集合进行转换，返回另一个形式的集合罢了。
+
         // given
         ArrayList<Country> countries = Lists.newArrayList(Country.POLAND, Country.BELGIUM, Country.ENGLAND);
 
@@ -42,6 +44,8 @@ public class Collections2Test {
     @Test
     public void shouldFilterCountriesOnlyFromAfrica() throws Exception {
 
+        //这里是将一个集合进行过滤，按照条件获取需要的数据。从另一个方面看，就是将一个集合转化为另一个集合。
+
         // given
         ArrayList<Country> countries = Lists.newArrayList(Country.POLAND, Country.BELGIUM, Country.SOUTH_AFRICA);
 
@@ -60,6 +64,8 @@ public class Collections2Test {
 
     @Test
     public void shouldShowThatResultIsOnlyAView() throws Exception {
+
+        //其实就是实现了过滤和重定向的功能，将一个集合重定向为另一个集合，当过滤条件非常复杂的时候，那么这个时候，他的优势就很突出了。
 
         // given
         ArrayList<Country> countries = Lists.newArrayList(Country.POLAND, Country.BELGIUM, Country.ENGLAND);
