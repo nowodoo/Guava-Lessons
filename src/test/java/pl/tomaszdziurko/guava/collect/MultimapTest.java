@@ -1,8 +1,16 @@
 package pl.tomaszdziurko.guava.collect;
 
+import com.google.common.base.Function;
 import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
 import org.testng.annotations.Test;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -45,6 +53,35 @@ public class MultimapTest {
         assertThat(multimap.get("Poland")).contains("Warsaw", "Plock");
         assertThat(multimap.keys().size()).isEqualTo(13); // keys can have duplicates
 
+    }
+
+    @Test
+    public void partitionTest() throws Exception {
+
+        //按照type进行分组，最后得出的 partitionedMap 是用type的value作为key的一个map.
+
+        List<Map<String, String>> listOfMaps = Lists.newArrayList();
+        for (int i = 0; i < 100; i++) {
+            Map<String, String> tMap = new HashMap<String, String>();
+            tMap.put("1", i + "");
+            tMap.put("2", i + "");
+            tMap.put("3", i + "");
+            tMap.put("4", i + "");
+            tMap.put("type", (new Random()).nextInt(10) +"");
+            listOfMaps.add(tMap);
+        }
+
+
+        Multimap<String, Map<String, String>> partitionedMap = Multimaps.index(listOfMaps,
+                new Function<Map<String, String>, String>() {
+                    public String apply(final Map<String, String> from) {
+                        return from.get("type");
+                    }
+                });
+
+
+        //自己输出一下结果就知道了
+        System.out.println(partitionedMap);
     }
 
 }
