@@ -16,6 +16,8 @@ public class ObjectArraysTest {
     @Test
     public void shouldContactTwoArrays() throws Exception {
 
+        //将集合进行简单的合并
+
         // when
         String[] newArray = ObjectArrays.concat(array1, array2, String.class);
 
@@ -25,6 +27,8 @@ public class ObjectArraysTest {
 
     @Test
     public void shouldAppendElement() throws Exception {
+
+        //将一个集合和单个元素合并
 
         // when
         String[] newArray = ObjectArrays.concat(array2, "six");

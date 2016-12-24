@@ -52,6 +52,8 @@ public class RangesTest {
     @Test
     public void shouldGenerateSetOfElementsInRange() throws Exception {
 
+        //将range转换为set （集合）
+
         // given
         Range<Integer> range = Ranges.open(2, 20);
 

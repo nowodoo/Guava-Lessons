@@ -134,6 +134,8 @@ public class IterablesTest {
     @Test
     public void shouldCountElementsInIterable() throws Exception {
 
+        //遍历一个集合中某一个元素出现的顺序
+
         // given
         List<Integer> numbersList = Lists.newArrayList(1, 2, 3, 0, -2, 2, 430, 2);
 
@@ -147,6 +149,8 @@ public class IterablesTest {
     @Test
     public void shouldReturnSelectedElementWithDefValue() throws Exception {
 
+        //获取一个集合的数值，当这个数值不存在的时候就设置一个默认值。
+
         // given
         List<Integer> numbersList = Lists.newArrayList(1, 2, 3, 0, -12, 22, 430, -1024);
 
@@ -159,6 +163,8 @@ public class IterablesTest {
 
     @Test
     public void shouldGetFirstAndLast() throws Exception {
+
+        //获取第一个和最后一个数值，要是没有的话就设置一个默认值
 
         // given
         List<Integer> numbersList = Lists.newArrayList(1, 2, 3, 0, -12, 22, 430, -1024);
@@ -174,6 +180,8 @@ public class IterablesTest {
 
     @Test
     public void shouldPartition() throws Exception {
+
+        //将一个数组按照固定的长度进行分割，分割为多个数组
 
         // given
         List<Integer> numbersList = Lists.newArrayList(1, 2, 3, 0, -12, 22, 430, -1024);
@@ -192,6 +200,8 @@ public class IterablesTest {
     @Test
     public void shouldConvertToArray() throws Exception {
 
+        //将一个包含数字的集合元素转换为包含数字的数组。
+
         // given
         List<Integer> numbersList = Lists.newArrayList(1, 2, 3, 0, -12, 22, 430, -1024);
 
@@ -206,6 +216,8 @@ public class IterablesTest {
 
     @Test
     public void shouldRemoveNegativeNumbers() throws Exception {
+
+        //将集合中的元素按照规则进行移除。
 
         // given
         List<Integer> numbersList = Lists.newArrayList(1, 2, 3, 0, -12, 22, 430, -1024);

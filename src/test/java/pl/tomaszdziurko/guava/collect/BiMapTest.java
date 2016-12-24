@@ -15,7 +15,7 @@ public class BiMapTest {
     @Test
     public void shouldInverseBiMap() throws Exception {
 
-        //ÆäÊµÕâ¸ö¾ÍÊÇÒ»¸ö¼òµ¥µÄË«Ïòmap°ÕÁË¡£
+        //å…¶å®è¿™ä¸ªå°±æ˜¯ä¸€ä¸ªç®€å•çš„åŒå‘mapç½¢äº†ã€‚
 
         BiMap<Integer, String> bimap = HashBiMap.create();
 
@@ -34,7 +34,7 @@ public class BiMapTest {
             expectedExceptionsMessageRegExp = "value already present: one")
     public void shouldNotAllowToPutExistingValue() throws Exception {
 
-        //Õâ¸öÖ÷ÒªÊÇ²âÊÔË«ÏòmapµÄÎ¨Ò»ĞÔ¡£
+        //è¿™ä¸ªä¸»è¦æ˜¯æµ‹è¯•åŒå‘mapçš„å”¯ä¸€æ€§ã€‚
 
         BiMap<Integer, String> bimap = HashBiMap.create();
 
@@ -50,7 +50,7 @@ public class BiMapTest {
     @Test
     public void shouldAllowToPutExistingValueWithForcePut() throws Exception {
 
-        //ÕâÀï¿ÉÒÔÓÃforcePutÀ´½â¾öÖØ¸´µÄÎÊÌâ£¬ºÜ¼òµ¥¡£
+        //è¿™é‡Œå¯ä»¥ç”¨forcePutæ¥è§£å†³é‡å¤çš„é—®é¢˜ï¼Œå¾ˆç®€å•ã€‚
 
         BiMap<Integer, String> bimap = HashBiMap.create();
 

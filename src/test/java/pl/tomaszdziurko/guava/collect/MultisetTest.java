@@ -39,21 +39,21 @@ public class MultisetTest {
 
         // when
         multiset.add("ball");
-        multiset.add("ball", 10);
+        multiset.add("ball", 10);  //这里的用法是添加多个元素，一次性添加10个元素。
 
         // then
         assertThat(multiset.count("ball")).isEqualTo(11);
 
 
         // when
-        multiset.remove("ball", 5);
+        multiset.remove("ball", 5);  //这里是移除5个相同的ball元素。
 
         // then
         assertThat(multiset.count("ball")).isEqualTo(6);
 
         
         // when
-        multiset.setCount("ball", 2);
+        multiset.setCount("ball", 2);    //设置ball的数量，无形之中将ball的数量锐减了。
       
         // then
         assertThat(multiset.count("ball")).isEqualTo(2);
@@ -62,6 +62,8 @@ public class MultisetTest {
 
     @Test
     public void shouldRetainOnlySelectedKeys() throws Exception {
+
+        //取交集的操作。
 
         // given
         Multiset<String> multiset = HashMultiset.create();

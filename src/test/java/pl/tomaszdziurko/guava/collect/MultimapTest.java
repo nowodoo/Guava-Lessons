@@ -16,6 +16,8 @@ public class MultimapTest {
     @Test
     public void shouldTestHowMultimapWorks() throws Exception {
 
+        //其实这个就是一个多key的map
+
         // given
         Multimap<String, String> multimap = ArrayListMultimap.create();
 
