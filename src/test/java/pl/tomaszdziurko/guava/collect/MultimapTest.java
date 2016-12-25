@@ -84,4 +84,11 @@ public class MultimapTest {
         System.out.println(partitionedMap);
     }
 
+    @Test
+    public void multiKeyTest() throws Exception {
+    }
+
+
+
+
 }
