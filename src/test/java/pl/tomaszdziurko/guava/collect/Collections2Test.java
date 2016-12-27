@@ -4,13 +4,15 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
 import org.testng.annotations.Test;
 import pl.tomaszdziurko.guava.geo.Continent;
 import pl.tomaszdziurko.guava.geo.Country;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -73,8 +75,6 @@ public class Collections2Test {
         // when
         Collection<String> capitalCities = Collections2.transform(countries,
                 new Function<Country, String>() {
-
-                    @Override
                     public String apply(@Nullable Country country) {
                         return country.getCapitalCity();
                     }
@@ -87,5 +87,51 @@ public class Collections2Test {
         countries.add(Country.SOUTH_AFRICA);
 
         assertThat(capitalCities).contains("Pretoria");
+    }
+
+    @Test
+    public void changeListToMultiMap() {
+        List<Map<String, Object>> hotelList = new ArrayList<Map<String, Object>>();
+
+        for (int i = 0; i < 10; i++) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("key1", "1");
+            map.put("key2", "2");
+            map.put("key3", "3");
+            map.put("key4", "4");
+            map.put("key5", "5");
+
+            hotelList.add(map);
+        }
+
+
+        //函数式实现添加一个key
+        //注意每个地方都是两个参数
+        Multimap<Map<String, Object>, Map<String, Object>> cityHotelMap = Multimaps.index(hotelList, new Function< Map<String, Object>, Map<String, Object> >() {
+
+            //这里的入参和出参都是对应着两个值，一个是原生，另一个就是经过变化的
+            public Map<String, Object> apply(Map<String, Object> input) {
+                input.put("addedKey", "6");
+                return input;
+            }
+        });
+
+
+        //将所有的结果输出
+        System.out.println(hotelList);
+        System.out.println(cityHotelMap);
+
+
+
+        //下面才是源码，将hotel转换为String的样式
+//        List<Hotel> hotelList = new ArrayList<>();
+//
+//        MultiMap<String,Hotel> cityHotelMap = MultiMaps.index(hotelList,new Function(){
+//            @Override
+//            public String apply(Hotel input) {
+//                return input.getCityCode();
+//            }
+//        })
+
     }
 }
