@@ -195,7 +195,10 @@ public class IterablesTest {
         Iterator<List<Integer>> iterator = partitionedLists.iterator();
 
         //获取iterator的个数
+        //使用了这个会导致这个iterator失效
         int size = Iterators.size(iterator);
+        //所以要使用下面的方法首先转换为list然后再用list就好了
+        List<List<Integer>> resultLists = Lists.newArrayList(iterator);
 
 
         assertThat(iterator.next().size()).isEqualTo(5);
