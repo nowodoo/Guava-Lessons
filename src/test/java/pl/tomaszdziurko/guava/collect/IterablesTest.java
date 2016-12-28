@@ -3,6 +3,7 @@ package pl.tomaszdziurko.guava.collect;
 import com.google.common.base.Predicate;
 import com.google.common.base.Strings;
 import com.google.common.collect.Iterables;
+import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import org.fest.assertions.Condition;
 import org.testng.annotations.Test;
@@ -192,6 +193,11 @@ public class IterablesTest {
         // then
         assertThat(Iterables.size(partitionedLists)).isEqualTo(2);
         Iterator<List<Integer>> iterator = partitionedLists.iterator();
+
+        //获取iterator的个数
+        int size = Iterators.size(iterator);
+
+
         assertThat(iterator.next().size()).isEqualTo(5);
         assertThat(iterator.next().size()).isEqualTo(3);
         
