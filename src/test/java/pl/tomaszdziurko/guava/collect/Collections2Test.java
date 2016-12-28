@@ -2,11 +2,9 @@ package pl.tomaszdziurko.guava.collect;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
-import com.google.common.collect.Collections2;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multimaps;
+import com.google.common.collect.*;
 import org.testng.annotations.Test;
+import pl.tomaszdziurko.guava.function.RssUtilDateChangeFunction;
 import pl.tomaszdziurko.guava.geo.Continent;
 import pl.tomaszdziurko.guava.geo.Country;
 
@@ -33,7 +31,6 @@ public class Collections2Test {
         Collection<String> capitalCities = Collections2.transform(countries,
                 new Function<Country, String>() {
 
-                    @Override
                     public String apply(@Nullable Country country) {
                         return country.getCapitalCity();
                     }
@@ -54,7 +51,6 @@ public class Collections2Test {
         // when
         Collection<Country> countriesFromAfrica = Collections2.filter(countries, new Predicate<Country>() {
 
-            @Override
             public boolean apply(@Nullable Country country) {
                 return Continent.AFRICA.equals(country.getContinent());
             }
@@ -76,6 +72,7 @@ public class Collections2Test {
         Collection<String> capitalCities = Collections2.transform(countries,
                 new Function<Country, String>() {
                     public String apply(@Nullable Country country) {
+
                         return country.getCapitalCity();
                     }
                 });
@@ -132,6 +129,19 @@ public class Collections2Test {
 //                return input.getCityCode();
 //            }
 //        })
+
+    }
+
+
+    @Test
+    public void externalFunction() {
+
+        //一个外部函数的例子
+        List<Map<String, Object>> oriLists = new ArrayList<Map<String, Object>>();
+
+        List<Map<String, Object>> result = Lists.transform(oriLists, new RssUtilDateChangeFunction());
+
+        System.out.println(result);
 
     }
 }
