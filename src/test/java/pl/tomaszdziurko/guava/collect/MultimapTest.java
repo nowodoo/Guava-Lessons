@@ -72,12 +72,14 @@ public class MultimapTest {
         }
 
 
+        //说明一下function的两个反射的参数值，第一个是value，然后第二个才是真正的key，就是这样Map<String, String>, String。自己查看一下接口的文档就知道了。
         Multimap<String, Map<String, String>> partitionedMap = Multimaps.index(listOfMaps,
                 new Function<Map<String, String>, String>() {
                     public String apply(final Map<String, String> from) {
                         return from.get("type");
                     }
                 });
+
 
 
         //自己输出一下结果就知道了
